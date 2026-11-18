@@ -119,8 +119,8 @@
               <dd><a href="https://documentdrivendx.github.io/umf/actions/">UMF Actions</a> declares inputs, preconditions, and effects. A saga coordinates multiple steps and defines compensating work. The application host supplies the executor, state, and recovery.</dd>
             </div>
             <div>
-              <dt><a class="workflow-link umf-node" href="#api-panel">GraphQL API</a></dt>
-              <dd><a href="https://github.com/DocumentDrivenDX/lintel">Lintel</a> projects UMF records into GraphQL. Relay connections are part of its design. The published alpha demonstrates a limited scalar projection.</dd>
+              <dt><a class="workflow-link umf-node" href="#api-panel">GraphQL and JSON:API</a></dt>
+              <dd><a href="https://github.com/DocumentDrivenDX/lintel">Lintel</a> exposes prepared APIs through GraphQL and Relay. Its <a href="https://github.com/DocumentDrivenDX/lintel/releases/tag/v0.1.0a7">v0.1.0a7 alpha</a> also supports JSON:API reads and named routes for commands and observations in the Batten task-board profile.</dd>
             </div>
           </dl>
         </figure>
@@ -180,10 +180,10 @@
             </div>
           </article>
           <article class="workflow-panel" id="api-panel" data-label="API">
-            <div class="panel-heading"><span>LINTEL</span><span>GraphQL API design</span></div>
+            <div class="panel-heading"><span>LINTEL</span><span>GraphQL and JSON:API design</span></div>
             <div class="panel-body">
               <h3>Expose the export job to the client.</h3>
-              <p>Design a GraphQL job status query and a Relay connection for export history around the UMF records. The application handles export requests and authorizes downloads.</p>
+              <p>Design a GraphQL job-status query and a Relay connection for export history. An HTTP client could use a JSON:API resource for job status and a collection for history. The application handles export requests and authorizes downloads.</p>
               <blockquote>Show the job’s state and date range. Offer the CSV download once the job is ready and the requester has access.</blockquote>
             </div>
           </article>
