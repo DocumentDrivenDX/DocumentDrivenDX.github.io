@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#f5f8f5">
   <link rel="canonical" href="https://documentdrivendx.github.io/">
   <link rel="icon" href="mark.png" type="image/png">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
   <script src="site.js?v=2" defer></script>
   <title>DocumentDrivenDX — Open-source developer tools</title>
 </head>
@@ -19,6 +19,7 @@
       <a class="brand" href="#top"><img src="mark.png" alt="" width="30" height="30">DocumentDriven<span>DX</span></a>
       <nav aria-label="Main navigation">
         <a href="#tools">Products</a>
+        <a href="#umf-family">UMF family</a>
         <a href="#workflow">Workflow</a>
         <a class="nav-github" href="https://github.com/DocumentDrivenDX">GitHub</a>
       </nav>
@@ -76,7 +77,7 @@
             <div class="card-top"><span class="tile violet icon-schema" aria-hidden="true"></span><p>Declarative design</p></div>
             <h3>UMF</h3>
             <p>UMF is our foundation for declarative system design. The UMF family builds on shared, machine-readable models for data and actions.</p>
-            <div class="tool-links"><a href="https://documentdrivendx.github.io/umf/" aria-label="UMF documentation">Documentation</a><a href="https://documentdrivendx.github.io/umf/ecosystem.html">UMF family</a><a href="https://github.com/DocumentDrivenDX/umf" aria-label="UMF on GitHub">GitHub</a></div>
+            <div class="tool-links"><a href="https://documentdrivendx.github.io/umf/" aria-label="UMF documentation">Documentation</a><a href="#umf-family">UMF family</a><a href="https://github.com/DocumentDrivenDX/umf" aria-label="UMF on GitHub">GitHub</a></div>
           </article>
           <article class="tool-card" id="innsigle">
             <div class="card-top"><span class="tile peach icon-seal" aria-hidden="true"><i></i></span><p>Provenance</p></div>
@@ -85,6 +86,37 @@
             <div class="tool-links"><a href="https://documentdrivendx.github.io/innsigle/" aria-label="Innsigle documentation">Documentation</a><a href="https://github.com/DocumentDrivenDX/innsigle" aria-label="Innsigle on GitHub">GitHub</a></div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="umf-family" class="section umf-section" aria-labelledby="umf-family-title">
+      <div class="shell">
+        <div class="umf-section-header">
+          <div>
+            <p class="eyebrow"><span></span> Declarative system design</p>
+            <h2 id="umf-family-title">The UMF family</h2>
+            <p>Declare records, fields, relationships, and actions in UMF. Choose how to store the records, query them, execute actions, and expose them to clients.</p>
+          </div>
+          <a class="button secondary" href="https://documentdrivendx.github.io/umf/ecosystem.html">Explore the ecosystem</a>
+        </div>
+        <dl class="umf-roles">
+          <div>
+            <dt>Storage</dt>
+            <dd><a href="https://github.com/DocumentDrivenDX/truss">Truss</a> stores typed records and relationships on PostgreSQL. <a href="https://github.com/DocumentDrivenDX/ashlar">Ashlar</a> publishes graph data for analytical reads on Databricks.</dd>
+          </div>
+          <div>
+            <dt>SQL and typed access</dt>
+            <dd>UMF supports selected <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-015-postgresql.md">native PostgreSQL DDL</a> and <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-079-unified-python-access.md">generated Python access</a>, including ORM-style operations for supported profiles. <a href="https://github.com/DocumentDrivenDX/weft">Weft</a> compiles supported portable queries into backend SQL.</dd>
+          </div>
+          <div>
+            <dt>Actions and sagas</dt>
+            <dd><a href="https://documentdrivendx.github.io/umf/actions/">UMF Actions</a> declares inputs, preconditions, and effects. A saga coordinates multiple steps and defines compensating work. The application host supplies the executor, state, and recovery.</dd>
+          </div>
+          <div>
+            <dt>GraphQL API</dt>
+            <dd><a href="https://github.com/DocumentDrivenDX/lintel">Lintel</a> projects UMF records into GraphQL. Relay connections are part of its design. The published alpha demonstrates a limited scalar projection.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -104,7 +136,7 @@
         <div>
           <p class="eyebrow"><span></span> A worked example</p>
           <h2>From feature spec<br>to release note.</h2>
-          <p>Follow a CSV export feature from its acceptance criterion through its data schema and release note.</p>
+          <p>Design a CSV export from the acceptance criterion through data, storage, actions, and an API. This example illustrates how the pieces fit together.</p>
           <div class="workflow-tabs" hidden aria-label="Example stages"></div>
         </div>
         <div class="workflow-panels">
@@ -114,7 +146,39 @@
           </article>
           <article class="workflow-panel" id="model-panel" data-label="Model">
             <div class="panel-heading"><span>UMF</span><span>report-export.yaml</span></div>
-            <div class="panel-body"><h3>Describe the data being exported.</h3><p>Capture field names and types in a schema the report and export tooling can share.</p><blockquote>The export has a reporting date, a category, and a decimal total. Every row includes all three fields.</blockquote></div>
+            <div class="panel-body"><h3>Describe the data being exported.</h3><p>Declare a ReportRow with a reporting date, category, and decimal total. Model an ExportJob with a date range, state, and a reference to the report.</p><blockquote>Each CSV row must contain a reporting date, a category, and an exact decimal total.</blockquote></div>
+          </article>
+          <article class="workflow-panel" id="storage-panel" data-label="Storage">
+            <div class="panel-heading"><span>TRUSS · ASHLAR</span><span>Records and snapshots</span></div>
+            <div class="panel-body">
+              <h3>Keep job state and reporting data separate.</h3>
+              <p>Track the export job and its link to the report with Truss on PostgreSQL. Read report rows from a published snapshot on Ashlar in Databricks.</p>
+              <blockquote>Record the snapshot ID with the job so a retry can use the same reporting data.</blockquote>
+            </div>
+          </article>
+          <article class="workflow-panel" id="access-panel" data-label="Data access">
+            <div class="panel-heading"><span>UMF · WEFT</span><span>SQL and ORM</span></div>
+            <div class="panel-body">
+              <h3>Use the same model for queries and typed access.</h3>
+              <p>Use generated Python access to look up a job by key on a supported profile. Run native SQL for a backend-specific read, or use Weft to compile the report’s date-range query into SQL for the chosen backend.</p>
+              <blockquote>Pass the date range as query parameters and stream the resulting date, category, and total into the CSV.</blockquote>
+            </div>
+          </article>
+          <article class="workflow-panel" id="actions-panel" data-label="Actions &amp; sagas">
+            <div class="panel-heading"><span>UMF ACTIONS</span><span>Host-run saga design</span></div>
+            <div class="panel-body">
+              <h3>Declare the changes and design for retry.</h3>
+              <p>Declare actions to request the export and mark it ready. The host coordinates the saga across the job store and file storage.</p>
+              <blockquote>Reserve a job ID, stage the CSV, then mark the job ready. Retry with the same ID. If publication is abandoned, remove the staged file and mark the job failed.</blockquote>
+            </div>
+          </article>
+          <article class="workflow-panel" id="api-panel" data-label="API">
+            <div class="panel-heading"><span>LINTEL</span><span>GraphQL API design</span></div>
+            <div class="panel-body">
+              <h3>Expose the export job to the client.</h3>
+              <p>Design a GraphQL job status query and a Relay connection for export history around the UMF records. The application handles export requests and authorizes downloads.</p>
+              <blockquote>Show the job’s state and date range. Offer the CSV download once the job is ready and the requester has access.</blockquote>
+            </div>
           </article>
           <article class="workflow-panel" id="publish-panel" data-label="Publish">
             <div class="panel-heading"><span>INNSIGLE</span><span>Colophon</span></div>
