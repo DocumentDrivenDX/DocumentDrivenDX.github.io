@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the DocumentDrivenDX family of open-source tools for document-driven development, agent workflows, and provenance.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f8f5">
+  <link rel="canonical" href="https://documentdrivendx.github.io/">
+  <link rel="icon" href="mark.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+  <title>DocumentDrivenDX — Open-source developer tools</title>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top"><img src="mark.png" alt="" width="30" height="30">DocumentDriven<span>DX</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#tools">Tools</a>
+        <a href="#workflow">Workflow</a>
+        <a class="nav-github" href="https://github.com/DocumentDrivenDX">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Open-source developer tools</p>
+        <h1 id="hero-title">Build software<br>from <em>living docs.</em></h1>
+        <p class="intro">Write down what you want to build, give agents work they can verify, and show readers how published work was made.</p>
+        <div class="actions">
+          <a class="button primary" href="#tools">Explore the tools</a>
+          <a class="button secondary" href="#workflow">See the workflow</a>
+        </div>
+      </div>
+
+      <figure class="blueprint">
+        <div class="blueprint-caption"><span class="drawing-dot"></span> From spec to release <span class="example">Example</span></div>
+        <div class="drawing">
+          <div class="connector connector-first"></div>
+          <div class="connector connector-second"></div>
+          <a class="artifact artifact-spec" href="#helix">
+            <span class="artifact-icon icon-document" aria-hidden="true"><i></i></span>
+            <span><small>HELIX · FEATURE SPEC</small><strong>csv-export.md</strong></span>
+          </a>
+          <a class="artifact artifact-work" href="#ddx">
+            <span class="artifact-icon icon-terminal" aria-hidden="true">›_</span>
+            <span><small>DDx · TRACKED WORK</small><strong>Build CSV export</strong></span>
+          </a>
+          <a class="artifact artifact-release" href="#innsigle">
+            <span class="artifact-icon icon-seal" aria-hidden="true"><i></i></span>
+            <span><small>INNSIGLE · COLOPHON</small><strong>release-notes.html</strong></span>
+          </a>
+        </div>
+        <figcaption>Follow one feature through the tools.</figcaption>
+      </figure>
+    </section>
+
+    <section id="tools" class="tools-section section">
+      <div class="shell">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span></span> The tool family</p><h2>Find your starting point.</h2></div>
+          <p>Start with the job you need to do. Each project has its own documentation and source.</p>
+        </div>
+        <div class="featured">
+          <article class="tool-card" id="helix">
+            <div class="card-top"><span class="tile mint icon-document" aria-hidden="true"><i></i></span><p>Methodology</p></div>
+            <h3>HELIX</h3>
+            <p>Frame the work with specs, design decisions, and test plans. Use the alignment skill to keep those documents in sync as the project changes.</p>
+            <div class="tool-links"><a href="https://documentdrivendx.github.io/helix/" aria-label="HELIX documentation">Documentation</a><a href="https://github.com/DocumentDrivenDX/helix" aria-label="HELIX on GitHub">GitHub</a></div>
+          </article>
+          <article class="tool-card" id="ddx">
+            <div class="card-top"><span class="tile violet icon-terminal" aria-hidden="true">›_</span><p>Execution</p></div>
+            <h3>DDx</h3>
+            <p>Turn specs into tracked work items called beads. Run agents against those items and keep a record of what ran and what landed.</p>
+            <div class="tool-links"><a href="https://documentdrivendx.github.io/ddx/" aria-label="DDx documentation">Documentation</a><a href="https://github.com/DocumentDrivenDX/ddx" aria-label="DDx on GitHub">GitHub</a></div>
+          </article>
+          <article class="tool-card" id="innsigle">
+            <div class="card-top"><span class="tile peach icon-seal" aria-hidden="true"><i></i></span><p>Provenance</p></div>
+            <h3>Innsigle</h3>
+            <p>Publish a brief colophon that declares how a piece was made. Sign it when you want readers to be able to verify the declaration.</p>
+            <div class="tool-links"><a href="https://documentdrivendx.github.io/innsigle/" aria-label="Innsigle documentation">Documentation</a><a href="https://github.com/DocumentDrivenDX/innsigle" aria-label="Innsigle on GitHub">GitHub</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section workflow-section">
+      <div class="shell workflow-grid">
+        <div>
+          <p class="eyebrow"><span></span> A worked example</p>
+          <h2>From feature spec<br>to release note.</h2>
+          <p>Imagine adding CSV export to a reporting app. Follow the same feature from the requirement through implementation and publication.</p>
+          <div class="workflow-tabs" hidden aria-label="Example stages"></div>
+        </div>
+        <div class="workflow-panels">
+          <article class="workflow-panel" id="frame-panel" data-label="Frame">
+            <div class="panel-heading"><span>HELIX</span><span>csv-export.md</span></div>
+            <div class="panel-body"><h3>Define what counts as done.</h3><p>Write an acceptance criterion a person or an agent can test.</p><blockquote>When a date filter is active, the CSV contains only the visible reporting period and starts with column headers.</blockquote></div>
+          </article>
+          <article class="workflow-panel" id="build-panel" data-label="Build">
+            <div class="panel-heading"><span>DDx</span><span>Bead</span></div>
+            <div class="panel-body"><h3>Give an agent a bounded job.</h3><p>Reference the feature spec in a bead. Implement the export and verify the acceptance criterion against the generated file.</p><blockquote>Build CSV export. Test that the header row and the selected date range match the report.</blockquote></div>
+          </article>
+          <article class="workflow-panel" id="publish-panel" data-label="Publish">
+            <div class="panel-heading"><span>INNSIGLE</span><span>Colophon</span></div>
+            <div class="panel-body"><h3>Record how the note was made.</h3><p>Attach a short declaration to the release note, with an optional signature for verification.</p><blockquote>Mixed authorship. An AI assistant drafted the note. The maintainer checked it against the shipped feature and approved the text.</blockquote></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="related" class="section related-section">
+      <div class="shell">
+        <div class="section-heading">
+          <div><p class="eyebrow"><span></span> More projects</p><h2>Explore the wider family.</h2></div>
+          <p>Tools for agent development, application design, and schema-driven data systems.</p>
+        </div>
+        <article class="family-card" aria-labelledby="novirhyza-title">
+          <div>
+            <h3 id="novirhyza-title">Novirhyza</h3>
+            <p>Explore Tether, Concourse, and Batten for building agent harnesses and applications, and collaborating on published work.</p>
+          </div>
+          <div class="family-links">
+            <a class="button primary" href="https://documentdrivendx.github.io/novirhyza/#projects">Explore Novirhyza</a>
+            <a href="https://documentdrivendx.github.io/novirhyza/#foundations">Supporting tools</a>
+          </div>
+        </article>
+        <ul class="project-list">
+          <li><a href="https://github.com/DocumentDrivenDX/erg"><strong>erg</strong><span>Local-first usage ledger for coding agents, covering tokens, cost, and work.</span><span class="project-action">GitHub</span></a></li>
+          <li><a href="https://github.com/DocumentDrivenDX/ux-builder"><strong>ux-builder</strong><span>Guide AI-assisted app design and check the implementation against an approved design system.</span><span class="project-action">GitHub</span></a></li>
+          <li><a href="https://documentdrivendx.github.io/tablespec/"><strong>tablespec</strong><span>Python tooling to validate UMF table schemas and generate SQL and other schema formats.</span><span class="project-action">Project site</span></a></li>
+          <li><a href="https://github.com/DocumentDrivenDX/axon"><strong>Axon</strong><span>Schema-first, auditable data store for agentic applications and business workflows.</span><span class="project-action">GitHub</span></a></li>
+          <li><a href="https://github.com/DocumentDrivenDX/dun"><strong>Dun</strong><span>Discovers and runs code quality checks with output for developers and coding agents.</span><span class="project-action">GitHub</span></a></li>
+          <li><a href="https://github.com/DocumentDrivenDX/ddx-library"><strong>DDx Library</strong><span>Templates, patterns, prompts, and configurations for AI-assisted development.</span><span class="project-action">GitHub</span></a></li>
+        </ul>
+        <details class="catalog-details">
+          <summary>UMF data and application tools</summary>
+          <ul class="project-list">
+            <li><a href="https://github.com/DocumentDrivenDX/truss"><strong>Truss</strong><span>Embeddable graph toolkit for PostgreSQL with UMF-typed properties.</span><span class="project-action">GitHub</span></a></li>
+            <li><a href="https://github.com/DocumentDrivenDX/ashlar"><strong>Ashlar</strong><span>A standard graph data model and development toolkit for Databricks.</span><span class="project-action">GitHub</span></a></li>
+            <li><a href="https://github.com/DocumentDrivenDX/lintel"><strong>Lintel</strong><span>Embeddable GraphQL and Relay APIs generated from UMF schemas.</span><span class="project-action">GitHub</span></a></li>
+            <li><a href="https://github.com/DocumentDrivenDX/umf-visual"><strong>umf-visual</strong><span>UMF extension and library for exchanging diagrams across tools.</span><span class="project-action">GitHub</span></a></li>
+          </ul>
+        </details>
+        <a class="button secondary all-projects" href="https://github.com/orgs/DocumentDrivenDX/repositories">Browse all repositories</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="shell footer-inner">
+      <a class="brand" href="#top"><img src="mark.png" alt="" width="28" height="28">DocumentDriven<span>DX</span></a>
+      <a href="https://github.com/DocumentDrivenDX">DocumentDrivenDX on GitHub</a>
+    </div>
+  </footer>
+</body>
+</html>
