@@ -26,6 +26,27 @@ function selectStage(index) {
   });
 }
 
+function revealLinkedPanel(hash) {
+  const index = panels.findIndex((panel) => hash === `#${panel.id}`);
+  if (index === -1 || !panels[index].hidden) return;
+
+  selectStage(index);
+  return panels[index];
+}
+
+document.querySelectorAll('.drawing .artifact').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    // Reveal the target before native fragment navigation scrolls to it.
+    revealLinkedPanel(link.hash);
+  });
+});
+
+window.addEventListener('hashchange', () => {
+  revealLinkedPanel(window.location.hash)?.scrollIntoView();
+});
+
 buttons.forEach((button, index) => {
   button.addEventListener('click', () => selectStage(index));
   button.addEventListener('keydown', (event) => {
@@ -45,3 +66,4 @@ buttons.forEach((button, index) => {
 
 selectStage(0);
 tabs.hidden = false;
+revealLinkedPanel(window.location.hash)?.scrollIntoView();
