@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#f5f8f5">
   <link rel="canonical" href="https://documentdrivendx.github.io/">
   <link rel="icon" href="mark.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
   <script src="site.js" defer></script>
   <title>DocumentDrivenDX — Open-source developer tools</title>
 </head>
@@ -30,7 +30,7 @@
       <div class="hero-copy">
         <p class="eyebrow"><span></span> Open-source developer tools</p>
         <h1 id="hero-title">Build software<br>from <em>living docs.</em></h1>
-        <p class="intro">Specify what to build, describe the data in a format tools can share, and show readers how published work was made.</p>
+        <p class="intro">Specify what to build, share schemas across tools, and show readers how published work was made.</p>
         <div class="actions">
           <a class="button primary" href="#tools">Explore the products</a>
           <a class="button secondary" href="#workflow">See the workflow</a>
@@ -38,32 +38,33 @@
       </div>
 
       <figure class="blueprint">
-        <div class="blueprint-caption"><span class="drawing-dot"></span> From spec to release <span class="example">Example</span></div>
-        <div class="drawing">
-          <div class="connector connector-first"></div>
-          <div class="connector connector-second"></div>
-          <a class="artifact artifact-spec" href="#helix">
-            <span class="artifact-icon icon-document" aria-hidden="true"><i></i></span>
-            <span><small>HELIX · FEATURE SPEC</small><strong>csv-export.md</strong></span>
-          </a>
-          <a class="artifact artifact-schema" href="#umf">
-            <span class="artifact-icon icon-schema" aria-hidden="true"></span>
-            <span><small>UMF · DATA SCHEMA</small><strong>report-export.yaml</strong></span>
-          </a>
-          <a class="artifact artifact-release" href="#innsigle">
-            <span class="artifact-icon icon-seal" aria-hidden="true"><i></i></span>
-            <span><small>INNSIGLE · COLOPHON</small><strong>release-notes.html</strong></span>
-          </a>
-        </div>
-        <figcaption>Follow one feature through the tools.</figcaption>
+        <figcaption class="blueprint-caption">CSV export example</figcaption>
+        <ol class="drawing" role="list">
+          <li>
+            <a class="artifact artifact-spec" href="#helix">
+              <span class="artifact-icon icon-document" aria-hidden="true"><i></i></span>
+              <span><small>HELIX · FEATURE SPEC</small><strong>csv-export.md</strong></span>
+            </a>
+          </li>
+          <li>
+            <a class="artifact artifact-schema" href="#umf">
+              <span class="artifact-icon icon-schema" aria-hidden="true"></span>
+              <span><small>UMF · DATA SCHEMA</small><strong>report-export.yaml</strong></span>
+            </a>
+          </li>
+          <li>
+            <a class="artifact artifact-release" href="#innsigle">
+              <span class="artifact-icon icon-seal" aria-hidden="true"><i></i></span>
+              <span><small>INNSIGLE · COLOPHON</small><strong>release-notes.html</strong></span>
+            </a>
+          </li>
+        </ol>
       </figure>
     </section>
 
     <section id="tools" class="tools-section section">
       <div class="shell">
-        <div class="section-heading">
-          <h2>Core products</h2>
-        </div>
+        <h2 class="section-heading">Core products</h2>
         <div class="featured">
           <article class="tool-card" id="helix">
             <div class="card-top"><span class="tile mint icon-document" aria-hidden="true"><i></i></span><p>Methodology</p></div>
@@ -92,7 +93,7 @@
         <div>
           <p class="eyebrow"><span></span> Application layer</p>
           <h2 id="novirhyza-title">Novirhyza</h2>
-          <p>Explore tools for building agents and applications and collaborating on published work.</p>
+          <p>Tools for building agents and applications and collaborating on published work.</p>
         </div>
         <a class="button primary" href="https://documentdrivendx.github.io/novirhyza/#projects">Explore Novirhyza</a>
       </div>
@@ -103,7 +104,7 @@
         <div>
           <p class="eyebrow"><span></span> A worked example</p>
           <h2>From feature spec<br>to release note.</h2>
-          <p>Imagine adding CSV export to a reporting app. Follow its acceptance criterion, data schema, and release note.</p>
+          <p>Follow a CSV export feature from its acceptance criterion through its data schema and release note.</p>
           <div class="workflow-tabs" hidden aria-label="Example stages"></div>
         </div>
         <div class="workflow-panels">
@@ -122,7 +123,6 @@
         </div>
       </div>
     </section>
-
   </main>
   <footer>
     <div class="shell footer-inner">
