@@ -34,7 +34,7 @@ function revealLinkedPanel(hash) {
   return panels[index];
 }
 
-document.querySelectorAll('.drawing .artifact').forEach((link) => {
+document.querySelectorAll('.workflow-link').forEach((link) => {
   link.addEventListener('click', (event) => {
     if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 

@@ -8,8 +8,8 @@
   <meta name="theme-color" content="#f5f8f5">
   <link rel="canonical" href="https://documentdrivendx.github.io/">
   <link rel="icon" href="mark.png" type="image/png">
-  <link rel="stylesheet" href="style.css?v=3">
-  <script src="site.js?v=2" defer></script>
+  <link rel="stylesheet" href="style.css?v=4">
+  <script src="site.js?v=3" defer></script>
   <title>DocumentDrivenDX — Open-source developer tools</title>
 </head>
 <body id="top">
@@ -42,19 +42,19 @@
         <figcaption class="blueprint-caption">CSV export example</figcaption>
         <ol class="drawing" role="list">
           <li>
-            <a class="artifact artifact-spec" href="#frame-panel">
+            <a class="workflow-link artifact artifact-spec" href="#frame-panel">
               <span class="artifact-icon icon-document" aria-hidden="true"><i></i></span>
               <span><small>HELIX · FEATURE SPEC</small><strong>csv-export.md</strong></span>
             </a>
           </li>
           <li>
-            <a class="artifact artifact-schema" href="#model-panel">
+            <a class="workflow-link artifact artifact-schema" href="#model-panel">
               <span class="artifact-icon icon-schema" aria-hidden="true"></span>
               <span><small>UMF · DATA SCHEMA</small><strong>report-export.yaml</strong></span>
             </a>
           </li>
           <li>
-            <a class="artifact artifact-release" href="#publish-panel">
+            <a class="workflow-link artifact artifact-release" href="#publish-panel">
               <span class="artifact-icon icon-seal" aria-hidden="true"><i></i></span>
               <span><small>INNSIGLE · COLOPHON</small><strong>release-notes.html</strong></span>
             </a>
@@ -99,24 +99,31 @@
           </div>
           <a class="button secondary" href="https://documentdrivendx.github.io/umf/ecosystem.html">Explore the ecosystem</a>
         </div>
-        <dl class="umf-roles">
-          <div>
-            <dt>Storage</dt>
-            <dd><a href="https://github.com/DocumentDrivenDX/truss">Truss</a> stores typed records and relationships on PostgreSQL. <a href="https://github.com/DocumentDrivenDX/ashlar">Ashlar</a> publishes graph data for analytical reads on Databricks.</dd>
-          </div>
-          <div>
-            <dt>SQL and typed access</dt>
-            <dd>UMF supports selected <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-015-postgresql.md">native PostgreSQL DDL</a> and <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-079-unified-python-access.md">generated Python access</a>, including ORM-style operations for supported profiles. <a href="https://github.com/DocumentDrivenDX/weft">Weft</a> compiles supported portable queries into backend SQL.</dd>
-          </div>
-          <div>
-            <dt>Actions and sagas</dt>
-            <dd><a href="https://documentdrivendx.github.io/umf/actions/">UMF Actions</a> declares inputs, preconditions, and effects. A saga coordinates multiple steps and defines compensating work. The application host supplies the executor, state, and recovery.</dd>
-          </div>
-          <div>
-            <dt>GraphQL API</dt>
-            <dd><a href="https://github.com/DocumentDrivenDX/lintel">Lintel</a> projects UMF records into GraphQL. Relay connections are part of its design. The published alpha demonstrates a limited scalar projection.</dd>
-          </div>
-        </dl>
+        <figure class="umf-diagram">
+          <figcaption>Select a node to open its step in the CSV example.</figcaption>
+          <a class="workflow-link umf-node umf-model" href="#model-panel">
+            <strong>UMF model</strong>
+            <span>Shared records, relationships, and actions</span>
+          </a>
+          <dl class="umf-roles">
+            <div>
+              <dt><a class="workflow-link umf-node" href="#storage-panel">Storage</a></dt>
+              <dd><a href="https://github.com/DocumentDrivenDX/truss">Truss</a> stores typed records and relationships on PostgreSQL. <a href="https://github.com/DocumentDrivenDX/ashlar">Ashlar</a> publishes graph data for analytical reads on Databricks.</dd>
+            </div>
+            <div>
+              <dt><a class="workflow-link umf-node" href="#access-panel">SQL and typed access</a></dt>
+              <dd>UMF supports selected <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-015-postgresql.md">native PostgreSQL DDL</a> and <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-079-unified-python-access.md">generated Python access</a>, including ORM-style operations for supported profiles. <a href="https://github.com/DocumentDrivenDX/weft">Weft</a> compiles supported portable queries into backend SQL.</dd>
+            </div>
+            <div>
+              <dt><a class="workflow-link umf-node" href="#actions-panel">Actions and sagas</a></dt>
+              <dd><a href="https://documentdrivendx.github.io/umf/actions/">UMF Actions</a> declares inputs, preconditions, and effects. A saga coordinates multiple steps and defines compensating work. The application host supplies the executor, state, and recovery.</dd>
+            </div>
+            <div>
+              <dt><a class="workflow-link umf-node" href="#api-panel">GraphQL API</a></dt>
+              <dd><a href="https://github.com/DocumentDrivenDX/lintel">Lintel</a> projects UMF records into GraphQL. Relay connections are part of its design. The published alpha demonstrates a limited scalar projection.</dd>
+            </div>
+          </dl>
+        </figure>
       </div>
     </section>
 
