@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#f5f8f5">
   <link rel="canonical" href="https://documentdrivendx.github.io/">
   <link rel="icon" href="mark.png" type="image/png">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
   <script src="site.js?v=3" defer></script>
   <title>DocumentDrivenDX — Open-source developer tools</title>
 </head>
@@ -183,8 +183,51 @@
             <div class="panel-heading"><span>LINTEL</span><span>GraphQL and JSON:API design</span></div>
             <div class="panel-body">
               <h3>Expose the export job to the client.</h3>
-              <p>Design a GraphQL job-status query and a Relay connection for export history. An HTTP client could use a JSON:API resource for job status and a collection for history. The application handles export requests and authorizes downloads.</p>
-              <blockquote>Show the job’s state and date range. Offer the CSV download once the job is ready and the requester has access.</blockquote>
+              <p>Both requests look up <code>export-42</code> and return its state and reporting date range. These sample routes and fields are illustrative.</p>
+              <div class="api-comparison">
+                <section class="api-example" aria-labelledby="graphql-example">
+                  <h4 id="graphql-example">GraphQL</h4>
+                  <h5>Request <code>POST /graphql</code></h5>
+                  <pre><code>query ExportJobStatus {
+  exportJob(id: "export-42") {
+    id
+    state
+    startDate
+    endDate
+  }
+}</code></pre>
+                  <h5>Sample response</h5>
+                  <pre><code>{
+  "data": {
+    "exportJob": {
+      "id": "export-42",
+      "state": "READY",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-31"
+    }
+  }
+}</code></pre>
+                </section>
+                <section class="api-example" aria-labelledby="jsonapi-example">
+                  <h4 id="jsonapi-example">JSON:API</h4>
+                  <h5>Request</h5>
+                  <pre><code>GET /export-jobs/export-42
+Accept: application/vnd.api+json</code></pre>
+                  <h5>Sample response</h5>
+                  <pre><code>{
+  "data": {
+    "type": "export-jobs",
+    "id": "export-42",
+    "attributes": {
+      "state": "READY",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-31"
+    }
+  }
+}</code></pre>
+                </section>
+              </div>
+              <p class="api-note">The application authorizes access to the job and serves the CSV only after the job is ready.</p>
             </div>
           </article>
           <article class="workflow-panel" id="publish-panel" data-label="Publish">
