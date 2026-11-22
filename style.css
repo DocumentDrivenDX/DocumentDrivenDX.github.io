@@ -183,3 +183,17 @@ footer { border-top: 1px solid var(--line); background: #e7efe8; }
 @media (max-width: 700px) {
   .api-comparison { grid-template-columns: minmax(0, 1fr); }
 }
+
+.audience-section { background: #e9f0e9; border-top: 1px solid var(--line); }
+.audience-grid { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1fr); gap: 2rem clamp(2rem, 6vw, 5.5rem); align-items: start; }
+.audience-intro p { max-width: 34rem; margin-top: .9rem; color: var(--muted); }
+.audience-link { display: inline-block; margin-top: 1rem; }
+.audience-section a { color: var(--green); font-weight: 700; text-underline-offset: .2em; }
+.audience-roles { margin: 0; }
+.audience-roles > div { padding: .85rem 0; border-top: 1px solid #b9ccbf; }
+.audience-roles > div:last-child { border-bottom: 1px solid #b9ccbf; }
+.audience-roles dt { font: 400 1.4rem/1.2 var(--serif); }
+.audience-roles dd { margin: .3rem 0 0; color: var(--muted); }
+@media (max-width: 720px) {
+  .audience-grid { grid-template-columns: minmax(0, 1fr); }
+}
