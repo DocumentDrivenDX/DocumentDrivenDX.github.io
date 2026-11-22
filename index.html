@@ -93,22 +93,22 @@
         <h2 class="section-heading">Core products</h2>
         <div class="featured">
           <article class="tool-card" id="helix">
-            <div class="card-top"><span class="tile mint icon-document" aria-hidden="true"><i></i></span><p>Methodology</p></div>
+            <div class="card-top"><span class="tile mint icon-document" aria-hidden="true"><i></i></span><p>Plan the work</p></div>
             <h3>HELIX</h3>
-            <p>Frame the work with specs, design decisions, and test plans. Use the alignment skill to keep those documents in sync as the project changes.</p>
-            <div class="tool-links"><a href="https://documentdrivendx.github.io/helix/" aria-label="HELIX documentation">Documentation</a><a href="https://github.com/DocumentDrivenDX/helix" aria-label="HELIX on GitHub">GitHub</a></div>
+            <p>Agree on what the software should do and how you’ll know it works. Keep requirements, design decisions, and test plans in sync when plans change.</p>
+            <div class="tool-links"><a href="https://documentdrivendx.github.io/helix/">Plan a project with HELIX</a><a href="https://github.com/DocumentDrivenDX/helix" aria-label="HELIX on GitHub">GitHub</a></div>
           </article>
           <article class="tool-card" id="umf">
-            <div class="card-top"><span class="tile violet icon-schema" aria-hidden="true"></span><p>Declarative design</p></div>
+            <div class="card-top"><span class="tile violet icon-schema" aria-hidden="true"></span><p>Share data definitions</p></div>
             <h3>UMF</h3>
-            <p>UMF is our foundation for declarative system design. The UMF family builds on shared, machine-readable models for data and actions.</p>
-            <div class="tool-links"><a href="https://documentdrivendx.github.io/umf/" aria-label="UMF documentation">Documentation</a><a href="#umf-family">UMF family</a><a href="https://github.com/DocumentDrivenDX/umf" aria-label="UMF on GitHub">GitHub</a></div>
+            <p>Give apps, reports, and data tools a shared way to describe information. Define a term such as reporting date once so teams and tools can use it consistently.</p>
+            <div class="tool-links"><a href="https://documentdrivendx.github.io/umf/">See how UMF models data</a><a href="#umf-family">See how UMF tools fit</a><a href="https://github.com/DocumentDrivenDX/umf" aria-label="UMF on GitHub">GitHub</a></div>
           </article>
           <article class="tool-card" id="innsigle">
-            <div class="card-top"><span class="tile peach icon-seal" aria-hidden="true"><i></i></span><p>Provenance</p></div>
+            <div class="card-top"><span class="tile peach icon-seal" aria-hidden="true"><i></i></span><p>Explain how work was made</p></div>
             <h3>Innsigle</h3>
-            <p>Publish a brief colophon that declares how a piece was made. Sign it when you want readers to be able to verify the declaration.</p>
-            <div class="tool-links"><a href="https://documentdrivendx.github.io/innsigle/" aria-label="Innsigle documentation">Documentation</a><a href="https://github.com/DocumentDrivenDX/innsigle" aria-label="Innsigle on GitHub">GitHub</a></div>
+            <p>Give readers a short account of how you made a piece and where AI helped. You can sign the note so readers can verify who issued it.</p>
+            <div class="tool-links"><a href="https://documentdrivendx.github.io/innsigle/">See how to document authorship</a><a href="https://github.com/DocumentDrivenDX/innsigle" aria-label="Innsigle on GitHub">GitHub</a></div>
           </article>
         </div>
       </div>
@@ -120,9 +120,9 @@
           <div>
             <p class="eyebrow"><span></span> Declarative system design</p>
             <h2 id="umf-family-title">The UMF family</h2>
-            <p>Declare records, fields, relationships, and actions in UMF. Choose how to store the records, query them, execute actions, and expose them to clients.</p>
+            <p>Describe the information your system uses and the changes it can make. The tools below use that shared model to store records, answer questions, carry out tasks, and connect apps.</p>
           </div>
-          <a class="button secondary" href="https://documentdrivendx.github.io/umf/ecosystem.html">Explore the ecosystem</a>
+          <a class="button secondary" href="https://documentdrivendx.github.io/umf/ecosystem.html">Browse the UMF tools</a>
         </div>
         <figure class="umf-diagram">
           <figcaption>Select a node to open its step in the CSV example.</figcaption>
@@ -133,19 +133,19 @@
           <dl class="umf-roles">
             <div>
               <dt><a class="workflow-link umf-node" href="#storage-panel">Storage</a></dt>
-              <dd><a href="https://github.com/DocumentDrivenDX/truss">Truss</a> stores typed records and relationships on PostgreSQL. <a href="https://github.com/DocumentDrivenDX/ashlar">Ashlar</a> publishes graph data for analytical reads on Databricks.</dd>
+              <dd><a href="https://github.com/DocumentDrivenDX/truss">Truss</a> keeps records and their relationships in PostgreSQL. <a href="https://github.com/DocumentDrivenDX/ashlar">Ashlar</a> publishes snapshots for reporting and analysis on Databricks.</dd>
             </div>
             <div>
               <dt><a class="workflow-link umf-node" href="#access-panel">SQL and typed access</a></dt>
-              <dd>UMF supports selected <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-015-postgresql.md">native PostgreSQL DDL</a> and <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-079-unified-python-access.md">generated Python access</a>, including ORM-style operations for supported profiles. <a href="https://github.com/DocumentDrivenDX/weft">Weft</a> compiles supported portable queries into backend SQL.</dd>
+              <dd>UMF supports selected <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-015-postgresql.md">native PostgreSQL DDL</a> and <a href="https://github.com/DocumentDrivenDX/umf/blob/master/docs/helix/02-design/contracts/CONTRACT-079-unified-python-access.md">generated Python access</a>, including ORM-style operations for supported profiles. <a href="https://github.com/DocumentDrivenDX/weft">Weft</a> lets developers reuse supported queries across databases by translating them into the SQL each one expects.</dd>
             </div>
             <div>
               <dt><a class="workflow-link umf-node" href="#actions-panel">Actions and sagas</a></dt>
-              <dd><a href="https://documentdrivendx.github.io/umf/actions/">UMF Actions</a> declares inputs, preconditions, and effects. A saga coordinates multiple steps and defines compensating work. The application host supplies the executor, state, and recovery.</dd>
+              <dd><a href="https://documentdrivendx.github.io/umf/actions/">UMF Actions</a> describes what a task needs and what it changes. For a task with several steps, a saga defines how to recover if one fails. The application host runs the steps and tracks progress.</dd>
             </div>
             <div>
               <dt><a class="workflow-link umf-node" href="#api-panel">GraphQL and JSON:API</a></dt>
-              <dd><a href="https://github.com/DocumentDrivenDX/lintel">Lintel</a> exposes prepared APIs through GraphQL and Relay. Its <a href="https://github.com/DocumentDrivenDX/lintel/releases/tag/v0.1.0a7">v0.1.0a7 alpha</a> also supports JSON:API reads and named routes for commands and observations in the Batten task-board profile.</dd>
+              <dd><a href="https://github.com/DocumentDrivenDX/lintel">Lintel</a> helps apps show users information such as job status and history through GraphQL and Relay. Its <a href="https://github.com/DocumentDrivenDX/lintel/releases/tag/v0.1.0a7">v0.1.0a7 alpha</a> also supports JSON:API reads and named routes for commands and observations in the Batten task-board profile.</dd>
             </div>
           </dl>
         </figure>
@@ -157,9 +157,9 @@
         <div>
           <p class="eyebrow"><span></span> Application layer</p>
           <h2 id="novirhyza-title">Novirhyza</h2>
-          <p>Tools for building agents and applications and collaborating on published work.</p>
+          <p>Find tools for building applications and AI assistants, sharing what you publish, and getting feedback from readers.</p>
         </div>
-        <a class="button primary" href="https://documentdrivendx.github.io/novirhyza/#projects">Explore Novirhyza</a>
+        <a class="button primary" href="https://documentdrivendx.github.io/novirhyza/#projects">Explore Novirhyza tools</a>
       </div>
     </section>
 
